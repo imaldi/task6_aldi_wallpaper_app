@@ -359,13 +359,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.10"
-  wallpaperplugin:
-    dependency: "direct main"
-    description:
-      name: wallpaperplugin
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.1"
   win32:
     dependency: transitive
     description:

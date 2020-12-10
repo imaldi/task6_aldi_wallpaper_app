@@ -26,8 +26,6 @@ dependencies:
 
   transparent_image: ^1.0.0
 
-  wallpaperplugin: ^0.1.1
-
   wallpaper_manager: "^1.0.10"
 
   flutter_cache_manager: "^1.1.3"

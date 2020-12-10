@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 // import 'package:transparent_image/transparent_image.dart';
-// import 'package:wallpaper_manager/wallpaper_manager.dart';
-// import 'package:flutter_cache_manager/flutter_cache_manager.dart';
+import 'package:wallpaper_manager/wallpaper_manager.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'dart:async';
 import 'package:flutter/services.dart';
-// import 'package:toast/toast.dart';
-import 'package:wallpaperplugin/wallpaperplugin.dart';
+import 'package:toast/toast.dart';
 
 class Detail extends StatefulWidget {
   // final List<String> imagelist;
@@ -24,54 +23,33 @@ class _Detail extends State<Detail> {
   // _Detail(this.imagelist, this.index);
   _Detail(this.imagePath);
   // ignore: unused_field
-  String _wallpaperStatus = "Initial";
-
-  // Future<void> setWallpaperFromFile() async {
-  //   setState(() {
-  //     _wallpaperFile = "Loading";
-  //   });
-  //   String result;
-  //   var file = await DefaultCacheManager().getSingleFile(imagePath);
-  //   // Platform messages may fail, so we use a try/catch PlatformException.
-  //   try {
-  //     result = await WallpaperManager.setWallpaperFromFile(
-  //         file.path,
-  //         // imagePath,
-  //         WallpaperManager.HOME_SCREEN);
-  //     Toast.show("Success", context, duration: Toast.LENGTH_LONG, gravity:  Toast.BOTTOM);
-  //   } on PlatformException {
-  //     result = 'Failed to get wallpaper.';
-  //   }
+  String _wallpaperFile = 'Unknown';
   //
-  //   // If the widget was removed from the tree while the asynchronous platform
-  //   // message was in flight, we want to discard the reply rather than calling
-  //   // setState to update our non-existent appearance.
-  //   if (!mounted) return;
-  //
-  //   setState(() {
-  //     _wallpaperFile = result;
-  //   });
-  // }
-
-  Future<void> setWallpaperFromFile(String imagePath) async {
-    String wallpaperStatus = "Unexpected Result";
-    String _localFile = imagePath;
+  Future<void> setWallpaperFromFile() async {
+    setState(() {
+      _wallpaperFile = "Loading";
+    });
+    String result;
+    // var file = await DefaultCacheManager().getSingleFile(imagePath);
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
-      Wallpaperplugin.setWallpaperWithCrop(localFile: _localFile);
-      //uncomment below line to set wallpaper without cropping
-      //Wallpaperplugin.setAutoWallpaper(localFile: _localFile);
-      wallpaperStatus = "new Wallpaper set";
+      result = await WallpaperManager.setWallpaperFromFile(
+          // file.path,
+          imagePath,
+          // "gambar/art/a1.jpg",
+          WallpaperManager.HOME_SCREEN);
+      Toast.show("Success", context, duration: Toast.LENGTH_LONG, gravity:  Toast.BOTTOM);
     } on PlatformException {
-      print("Platform exception");
-      wallpaperStatus = "Platform Error Occured";
+      result = 'Failed to get wallpaper.';
     }
+
     // If the widget was removed from the tree while the asynchronous platform
     // message was in flight, we want to discard the reply rather than calling
     // setState to update our non-existent appearance.
     if (!mounted) return;
+
     setState(() {
-      _wallpaperStatus = wallpaperStatus;
+      _wallpaperFile = result;
     });
   }
 
@@ -97,7 +75,7 @@ class _Detail extends State<Detail> {
                           )
                       ),
                       onPressed: (){
-                        setWallpaperFromFile(imagePath);
+                        setWallpaperFromFile();
                       }
                   )
                 ],
