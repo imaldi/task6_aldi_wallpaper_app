@@ -56,22 +56,22 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  var home='animal';
+  var home='sport';
   view(){
-    if(home == 'animal'){
-      return Animal();
+    if(home == 'sport'){
+      return Sport();
     }
-    if (home == 'city') {
-      return City();
+    if (home == 'nature') {
+      return Nature();
     }
-    if (home == 'flower') {
-      return Flower();
+    if (home == 'technology') {
+      return Technology();
     }
-    if (home == 'forest') {
-      return Forest();
+    if (home == 'art') {
+      return Art();
     }
-    if (home == 'mountain') {
-      return Mountain();
+    if (home == 'place') {
+      return Place();
     }
   }
   @override
@@ -93,42 +93,42 @@ class _MyHomePageState extends State<MyHomePage> {
                       FlatButton(
                           onPressed: (){
                             setState(() {
-                              home= 'animal';
+                              home= 'sport';
                             });
                           },
-                          child: Text('Animal')
+                          child: Text('Sport')
                       ),
                       FlatButton(
                           onPressed: (){
                             setState(() {
-                              home= 'city';
+                              home= 'nature';
                             });
                           },
-                          child: Text('City')
+                          child: Text('Nature')
                       ),
                       FlatButton(
                           onPressed: (){
                             setState(() {
-                              home= 'flower';
+                              home= 'technology';
                             });
                           },
-                          child: Text('Flower')
+                          child: Text('Technology')
                       ),
                       FlatButton(
                           onPressed: (){
                             setState(() {
-                              home= 'forest';
+                              home= 'art';
                             });
                           },
-                          child: Text('Forest')
+                          child: Text('Art')
                       ),
                       FlatButton(
                           onPressed: (){
                             setState(() {
-                              home= 'mountain';
+                              home= 'place';
                             });
                           },
-                          child: Text('Mountain')
+                          child: Text('Place')
                       ),
                     ],
                   ),
@@ -144,14 +144,14 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class Animal extends StatefulWidget {
+class Sport extends StatefulWidget {
   @override
-  _Animal createState() => _Animal();
+  _Sport createState() => _Sport();
 }
 
-class _Animal extends State<Animal> {
+class _Sport extends State<Sport> {
 
-  List<String> animallist= [
+  List<String> sportlist= [
     'https://i.pinimg.com/236x/07/f9/ab/07f9abf3002425a530db0af32b128134.jpg',
     'https://i.pinimg.com/236x/a0/05/47/a0054732fdb1dd95b2283ee8c7fb5241.jpg',
     'https://i.pinimg.com/236x/db/ef/df/dbefdf627b50f3040d55f394bd9de1d0.jpg',
@@ -173,15 +173,15 @@ class _Animal extends State<Animal> {
         child:new StaggeredGridView.countBuilder(
           shrinkWrap: true,
           crossAxisCount: 4,
-          itemCount: animallist.length,
+          itemCount: sportlist.length,
           itemBuilder: (BuildContext context, int index) => new Container(
               child: InkWell(
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> Detail(
-                      animallist, index
+                      sportlist, index
                   )));
                 },
-                child: FadeInImage.memoryNetwork(placeholder: kTransparentImage, image: animallist[index], fit: BoxFit.cover,),
+                child: FadeInImage.memoryNetwork(placeholder: kTransparentImage, image: sportlist[index], fit: BoxFit.cover,),
               )
           ),
           staggeredTileBuilder: (int index) =>
@@ -193,72 +193,91 @@ class _Animal extends State<Animal> {
   }
 }
 
-class City extends StatefulWidget {
+class Nature extends StatefulWidget {
   @override
-  _City createState() => _City();
+  _Nature createState() => _Nature();
 }
 
-class _City extends State<City> {
+class _Nature extends State<Nature> {
 
-  List<String> citylist= [
-    'https://images.pexels.com/photos/313782/pexels-photo-313782.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    'https://images.pexels.com/photos/3052361/pexels-photo-3052361.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    'https://images.pexels.com/photos/3849167/pexels-photo-3849167.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    'https://images.pexels.com/photos/2760856/pexels-photo-2760856.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    'https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    'https://images.pexels.com/photos/374811/pexels-photo-374811.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    'https://images.pexels.com/photos/1519088/pexels-photo-1519088.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    'https://images.pexels.com/photos/1168940/pexels-photo-1168940.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    'https://images.pexels.com/photos/1239162/pexels-photo-1239162.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    'https://images.pexels.com/photos/3678857/pexels-photo-3678857.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    'https://images.pexels.com/photos/441379/pexels-photo-441379.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    'https://images.pexels.com/photos/2093323/pexels-photo-2093323.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    'https://images.pexels.com/photos/1139556/pexels-photo-1139556.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    'https://images.pexels.com/photos/2834219/pexels-photo-2834219.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+
+  List<Container> natureContainerList = new List();
+  List<String> naturelist= [
+    'gili-trawangan-lombok-ntb.jpg',
+    'karimun-jawa-jawa-tengah.jpg',
+    'pantai-nembrala.jpg',
+    'pantai-nihiwatu-sumba-ntt.jpg',
+    'pantai-ora-maluku-tengah.jpg',
+    'pantai-padang-padang-bali.jpg',
+    'pantai-pasir-putih-karang-asem-bali.jpg',
   ];
+
+  _buatContainerList() async {
+    for(var i = 0; i<naturelist.length; i++){
+      // final dataPantai = itemPantai[i];
+
+      final String natureImage = naturelist[i];
+      natureContainerList.add(new Container(
+        padding: EdgeInsets.all(10),
+        child: Card(
+          child: InkWell(
+            onTap : (){
+              // Navigator.push(context, MaterialPageRoute(builder: (context) => PageDetailPantai(
+              //   nama: dataPantai['nama'],
+              //   gambar: gambarPantai,
+              //   provinsi: dataPantai['provinsi'],
+              //   deskripsi: dataPantai['deskripsi'],
+              // )));
+            },
+            child: Column(
+              children: [
+                Hero(
+                  tag: naturelist[i],
+                  child: Image.asset('gambar/nature/$natureImage',height: 300,width: 300, fit: BoxFit.contain,),
+                ),
+                // Padding(
+                //   padding: EdgeInsets.all(1),
+                // ),
+                // Text(dataPantai['nama'],style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold, color: Colors.lightBlue),)
+              ],
+            ),
+          ),
+        ),
+      ));
+    }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _buatContainerList();
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
         margin: EdgeInsets.all(10),
-        child: new StaggeredGridView.countBuilder(
-          shrinkWrap: true,
-          crossAxisCount: 4,
-          itemCount: citylist.length,
-          itemBuilder: (BuildContext context, int index) => new Container(
-            child: InkWell(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> Detail(
-                    citylist, index
-                )));
-              },
-              child: FadeInImage.memoryNetwork(placeholder: kTransparentImage, image: citylist[index], fit: BoxFit.cover,),
-            ),
-          ),
-          staggeredTileBuilder: (int index) =>
-          new StaggeredTile.count(2, index.isEven ? 2 : 1),
-          mainAxisSpacing: 4.0,
-          crossAxisSpacing: 4.0,
-        )
+        child: GridView.count(crossAxisCount: 1, children: natureContainerList)
     );
   }
 }
 
-class Flower extends StatefulWidget {
+class Technology extends StatefulWidget {
   @override
-  _Flower createState() => _Flower();
+  _Technology createState() => _Technology();
 }
 
-class _Flower extends State<Flower> {
+class _Technology extends State<Technology> {
 
-  List<String> flowerlist= [
+  List<String> technologylist= [
     'https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509__340.jpg',
     'https://cdn.pixabay.com/photo/2018/10/30/16/06/water-lily-3784022__340.jpg',
-    'https://cdn.pixabay.com/photo/2015/04/19/08/33/flower-729512__340.jpg',
+    'https://cdn.pixabay.com/photo/2015/04/19/08/33/technology-729512__340.jpg',
     'https://cdn.pixabay.com/photo/2016/02/27/06/43/cherry-tree-1225186__340.jpg',
     'https://cdn.pixabay.com/photo/2016/06/17/16/42/bouquet-1463562__340.jpg',
     'https://cdn.pixabay.com/photo/2016/09/22/15/42/rose-1687547__340.jpg',
     'https://cdn.pixabay.com/photo/2016/08/03/14/24/roses-1566792__340.jpg',
-    'https://cdn.pixabay.com/photo/2018/07/20/13/52/sunflower-3550693__340.jpg',
+    'https://cdn.pixabay.com/photo/2018/07/20/13/52/suntechnology-3550693__340.jpg',
     'https://cdn.pixabay.com/photo/2015/06/08/15/00/daisy-801813__340.jpg',
     'https://cdn.pixabay.com/photo/2017/10/15/15/58/spring-2854205__340.jpg',
     'https://cdn.pixabay.com/photo/2018/08/10/21/53/dandelion-3597681__340.jpg',
@@ -274,15 +293,15 @@ class _Flower extends State<Flower> {
         child: new StaggeredGridView.countBuilder(
           shrinkWrap: true,
           crossAxisCount: 4,
-          itemCount: flowerlist.length,
+          itemCount: technologylist.length,
           itemBuilder: (BuildContext context, int index) => new Container(
             child: InkWell(
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> Detail(
-                    flowerlist, index
+                    technologylist, index
                 )));
               },
-              child: FadeInImage.memoryNetwork(placeholder: kTransparentImage, image: flowerlist[index], fit: BoxFit.cover,),
+              child: FadeInImage.memoryNetwork(placeholder: kTransparentImage, image: technologylist[index], fit: BoxFit.cover,),
             ),
           ),
           staggeredTileBuilder: (int index) =>
@@ -294,14 +313,14 @@ class _Flower extends State<Flower> {
   }
 }
 
-class Forest extends StatefulWidget {
+class Art extends StatefulWidget {
   @override
-  _Forest createState() => _Forest();
+  _Art createState() => _Art();
 }
 
-class _Forest extends State<Forest> {
+class _Art extends State<Art> {
 
-  List<String> forestlist= [
+  List<String> artlist= [
     'https://cdn.pixabay.com/photo/2018/08/21/23/29/fog-3622519__340.jpg',
     'https://cdn.pixabay.com/photo/2015/12/01/20/28/fall-1072821__340.jpg',
     'https://cdn.pixabay.com/photo/2016/07/22/16/29/fog-1535201__340.jpg',
@@ -309,12 +328,12 @@ class _Forest extends State<Forest> {
     'https://cdn.pixabay.com/photo/2019/03/31/21/43/the-dark-hedges-4094148__340.jpg',
     'https://cdn.pixabay.com/photo/2018/11/09/08/08/autumn-3804001__340.jpg',
     'https://cdn.pixabay.com/photo/2015/12/08/00/39/foggy-1081915__340.jpg',
-    'https://cdn.pixabay.com/photo/2018/05/11/23/33/forest-3392077__340.jpg',
+    'https://cdn.pixabay.com/photo/2018/05/11/23/33/art-3392077__340.jpg',
     'https://cdn.pixabay.com/photo/2016/11/25/15/14/landscape-1858602__340.jpg',
-    'https://cdn.pixabay.com/photo/2016/03/09/09/42/forest-1245951__340.jpg',
+    'https://cdn.pixabay.com/photo/2016/03/09/09/42/art-1245951__340.jpg',
     'https://cdn.pixabay.com/photo/2016/03/27/19/49/nature-1283976__340.jpg',
     'https://cdn.pixabay.com/photo/2017/02/12/17/35/sunbeam-2060662__340.jpg',
-    'https://cdn.pixabay.com/photo/2019/02/27/02/07/forest-4023269__340.jpg',
+    'https://cdn.pixabay.com/photo/2019/02/27/02/07/art-4023269__340.jpg',
   ];
   @override
   Widget build(BuildContext context) {
@@ -323,15 +342,15 @@ class _Forest extends State<Forest> {
         child: new StaggeredGridView.countBuilder(
           shrinkWrap: true,
           crossAxisCount: 4,
-          itemCount: forestlist.length,
+          itemCount: artlist.length,
           itemBuilder: (BuildContext context, int index) => new Container(
             child: InkWell(
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> Detail(
-                    forestlist, index
+                    artlist, index
                 )));
               },
-              child: FadeInImage.memoryNetwork(placeholder: kTransparentImage, image: forestlist[index], fit: BoxFit.cover,),
+              child: FadeInImage.memoryNetwork(placeholder: kTransparentImage, image: artlist[index], fit: BoxFit.cover,),
             ),
           ),
           staggeredTileBuilder: (int index) =>
@@ -343,19 +362,19 @@ class _Forest extends State<Forest> {
   }
 }
 
-class Mountain extends StatefulWidget {
+class Place extends StatefulWidget {
   @override
-  _Mountain createState() => _Mountain();
+  _Place createState() => _Place();
 }
 
-class _Mountain extends State<Mountain> {
+class _Place extends State<Place> {
 
-  List<String> mountainlist= [
+  List<String> placelist= [
     'https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     'https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     'https://images.pexels.com/photos/3617500/pexels-photo-3617500.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     'https://images.pexels.com/photos/1266810/pexels-photo-1266810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    'https://images.pexels.com/photos/1562/italian-landscape-mountains-nature.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    'https://images.pexels.com/photos/1562/italian-landscape-places-nature.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     'https://images.pexels.com/photos/1525041/pexels-photo-1525041.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     'https://images.pexels.com/photos/842711/pexels-photo-842711.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     'https://images.pexels.com/photos/1670187/pexels-photo-1670187.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
@@ -373,15 +392,15 @@ class _Mountain extends State<Mountain> {
         child: new StaggeredGridView.countBuilder(
           shrinkWrap: true,
           crossAxisCount: 4,
-          itemCount: mountainlist.length,
+          itemCount: placelist.length,
           itemBuilder: (BuildContext context, int index) => new Container(
             child: InkWell(
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> Detail(
-                    mountainlist, index
+                    placelist, index
                 )));
               },
-              child: FadeInImage.memoryNetwork(placeholder: kTransparentImage, image: mountainlist[index], fit: BoxFit.cover,),
+              child: FadeInImage.memoryNetwork(placeholder: kTransparentImage, image: placelist[index], fit: BoxFit.cover,),
             ),
           ),
           staggeredTileBuilder: (int index) =>
@@ -392,3 +411,6 @@ class _Mountain extends State<Mountain> {
     );
   }
 }
+
+
+//Sport, Nature, Technology, Art, Place
